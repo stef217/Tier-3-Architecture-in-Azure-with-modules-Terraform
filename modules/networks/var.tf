@@ -22,7 +22,12 @@ variable "public_subnet_name" {
   description = "Name of the subnet"
   type        = string
 }
-
+variable "public_id" {
+  description = "ID of the Network Interface"
+}
+variable "nsg_id" {
+  description = "ID of the Network Security Group"
+}
 variable "vnetcidr" {}
 variable "public_prefixes" {}
 variable "private_prefixes" {}

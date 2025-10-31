@@ -6,9 +6,9 @@ resource "azurerm_virtual_network" "vnet" {
 }
 
 resource "azurerm_subnet" "private" {
-  name                = var.private_subnet_name
-  address_prefixes    = var.private_prefixes
-  resource_group_name = azurerm_virtual_network.vnet.resource_group_name
+  name                 = var.private_subnet_name
+  address_prefixes     = var.private_prefixes
+  resource_group_name  = azurerm_virtual_network.vnet.resource_group_name
   virtual_network_name = azurerm_virtual_network.vnet.name
 }
 
@@ -19,5 +19,8 @@ resource "azurerm_subnet" "public" {
   virtual_network_name = azurerm_virtual_network.vnet.name
 }
 
-
+resource "azurerm_subnet_network_security_group_association" "nsg_link" {
+  subnet_id                 = var.public_id
+  network_security_group_id = var.nsg_id
+}
 

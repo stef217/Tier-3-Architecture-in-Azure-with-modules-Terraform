@@ -2,10 +2,6 @@
 # name         = azurerm_key_vault_secret.vm_password.name
 #key_vault_id = azurerm_key_vault.key_vault_id }
 
-resource "azurerm_network_interface_security_group_association" "nsg_link" {
-  network_interface_id      = var.nic_id
-  network_security_group_id = var.nsg_id
-}
 resource "random_password" "vm_password" {
   length  = 20
   special = true

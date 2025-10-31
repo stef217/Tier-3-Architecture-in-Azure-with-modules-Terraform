@@ -9,6 +9,8 @@ module "networks" {
   private_subnet_name = var.private_subnet_name
   public_prefixes     = var.public_prefixes
   public_subnet_name  = var.public_subnet_name
+  public_id           = module.networks.public_id
+  nsg_id              = module.security.nsg_id
 }
 
 module "security" {
@@ -25,7 +27,6 @@ module "compute" {
   vm_name      = var.vm_name
   nic_name     = var.nic_name
   nic_id       = var.nic_id
-  nsg_id       = module.security.nsg_id
   vm_subnet_id = module.networks.public_id
   #  key_vault_id            = module.security.key_vault_id
   #  vm_password_secret_name = module.security.vm_password_secret_name

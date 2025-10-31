@@ -13,9 +13,7 @@ variable "vm_name" {
   type        = string
 }
 
-variable "nsg_id" {
-  description = "ID of the Network Security Group"
-}
+
 variable "nic_name" {
   description = "Name of the NIC"
   type        = string

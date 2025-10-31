@@ -1,0 +1,11 @@
+rg_name                = "1-e717475a-playground-sandbox"
+location               = "South Central US"
+vnet_name              = "Vnet1"
+private_subnet_name    = "private"
+public_subnet_name     = "public"
+vnetcidr               = ["10.0.0.0/16"]
+public_prefixes        = ["10.0.1.0/24"]
+private_prefixes       = ["10.0.2.0/24"]
+vm_name                = "VM1"
+nic_name               = "NIC1"
+nsg_name               = "nsg-1"

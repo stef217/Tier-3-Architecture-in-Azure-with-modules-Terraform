@@ -21,12 +21,13 @@ resource "azurerm_network_interface" "nic" {
   }
 }
 resource "azurerm_linux_virtual_machine" "vm" {
-  name                = var.vm_name
-  location            = var.location
-  resource_group_name = var.rg_name
-  size                = "Standard_B1s"
-  admin_username      = "Administator"
-  admin_password      = random_password.vm_password.result
+  name                            = var.vm_name
+  location                        = var.location
+  resource_group_name             = var.rg_name
+  size                            = "Standard_B1s"
+  admin_username                  = "Administator"
+  admin_password                  = random_password.vm_password.result
+  disable_password_authentication = false
   #admin_password = data.azurerm_key_vault_secret.vm_password.value
   network_interface_ids = [
     azurerm_network_interface.nic.id

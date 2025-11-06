@@ -42,3 +42,18 @@ variable "vm_name" {
 variable "vnetcidr" {}
 variable "public_prefixes" {}
 variable "private_prefixes" {}
+
+variable "primary_sql_server_name" {
+  description = "Specifies the name of the Azure SQL Server that will host the database. The name must be globally unique within Azure."
+  type        = string
+}
+
+variable "sql_database_name" {
+  description = "Specifies the name of the Azure SQL Database to be created within the SQL Server."
+  type        = string
+}
+
+variable "sql_admin_username" {
+  description = "The administrator login name for the Azure SQL Server. This username will be used to connect to the server."
+  type        = string
+}

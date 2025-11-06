@@ -3,7 +3,7 @@
 #key_vault_id = azurerm_key_vault.key_vault_id }
 
 resource "random_password" "vm_password" {
-  length  = 20
+  length  = 12
   special = true
   lower   = true
   upper   = true

@@ -1,8 +1,8 @@
 
 module "networks" {
   source              = "./modules/networks"
-  rg_name             = var.rg_name
   location            = var.location
+  rg_name             = var.rg_name
   vnet_name           = var.vnet_name
   vnetcidr            = var.vnetcidr
   private_prefixes    = var.private_prefixes
@@ -15,8 +15,8 @@ module "networks" {
 
 module "security" {
   source   = "./modules/security"
-  rg_name  = var.rg_name
   location = var.location
+  rg_name  = var.rg_name
   nsg_name = var.nsg_name
 }
 
@@ -30,4 +30,13 @@ module "compute" {
   vm_subnet_id = module.networks.public_id
   #  key_vault_id            = module.security.key_vault_id
   #  vm_password_secret_name = module.security.vm_password_secret_name
+}
+
+module "database" {
+  source                  = "./modules/database"
+  location                = var.location
+  resource_group_name     = var.rg_name
+  primary_sql_server_name = var.primary_sql_server_name
+  sql_database_name       = var.sql_database_name
+  sql_admin_username      = var.sql_admin_username
 }
